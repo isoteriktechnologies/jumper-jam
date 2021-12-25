@@ -20,7 +20,8 @@ public class GameScene extends Scene {
 
     public GameScene() {
         gameManager = GameObject.newInstance("GameManager");
-        //gameManager.addComponent(new CameraController());
+        gameManager.addComponent(new CameraController());
+        addGameObject(gameManager);
 
         TiledMap tiledMap = racken.assets.getAsset("level1.tmx", TiledMap.class);
         tiledMapRenderer = new TiledMapRenderer(tiledMap, 1f/GlobalSettings.PIXELS_PER_UNIT);
@@ -29,8 +30,6 @@ public class GameScene extends Scene {
         mainCamera.setup(new FitViewport(gameWorldUnits.getWorldWidth(), gameWorldUnits.getWorldHeight()));
 
         init();
-
-        addGameObject(gameManager);
     }
 
     private void init() {

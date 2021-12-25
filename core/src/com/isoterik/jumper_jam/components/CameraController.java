@@ -14,35 +14,41 @@ public class CameraController extends Component {
     private float maxY;
     private Interpolation interpolation;
 
-    @Override
-    public void start() {
-        camera = scene.getMainCamera();
-        player = scene.findGameObject(GlobalSettings.PLAYER_TAG);
+    private void getDependencies() {
+        if (camera == null)
+            camera = scene.getMainCamera();
 
-        GameObject levelTop = scene.findGameObject(GlobalSettings.LEVEL_TOP_TAG);
-        if (levelTop != null)
-            maxY = levelTop.transform.position.y;
+        if (player == null)
+            player = scene.findGameObject(GlobalSettings.PLAYER_TAG);
 
-        interpolation = Interpolation.linear;
+        if (maxY == 0) {
+            GameObject levelTop = scene.findGameObject(GlobalSettings.LEVEL_TOP_TAG);
+            if (levelTop != null)
+                maxY = levelTop.transform.position.y;
+        }
+
+        if (interpolation == null)
+            interpolation = Interpolation.linear;
     }
 
     @Override
     public void update(float deltaTime) {
+        getDependencies();
+
         if (player == null)
             return;
 
         // Vertically center the camera on the player
 
-//        Vector3 playerSize = player.transform.size;
-//        Vector3 playerPosition = player.transform.position;
-//        Vector3 cameraPosition = camera.getCamera().position;
-//
-//        float minY = scene.getGameWorldUnits().getWorldHeight()/2f;
-//
-//        float newCameraY = playerPosition.y + (playerSize.y * .5f);
-//        float lerp = 0.2f;
-//        cameraPosition.y += (newCameraY) * lerp * deltaTime;
-//        cameraPosition.y = MathUtils.clamp(cameraPosition.y, minY, maxY - minY);
+        Vector3 playerSize = player.transform.size;
+        Vector3 playerPosition = player.transform.position;
+        Vector3 cameraPosition = camera.getCamera().position;
+
+        float minY = scene.getGameWorldUnits().getWorldHeight()/2f;
+        float oldCameraY = cameraPosition.y;
+        float newCameraY = playerPosition.y + (playerSize.y * .5f);
+        cameraPosition.y += interpolation.apply(newCameraY - oldCameraY) * deltaTime;
+        cameraPosition.y = MathUtils.clamp(cameraPosition.y, minY, maxY - minY);
     }
 }
 
