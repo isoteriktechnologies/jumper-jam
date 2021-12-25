@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="25" height="225" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="9">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="25" height="225" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="11">
  <tileset firstgid="1" name="Ground1" tilewidth="800" tileheight="122" tilecount="1" columns="1">
   <image source="bgs/Ground1.png" width="800" height="122"/>
  </tileset>
@@ -30,10 +30,20 @@
   <image source="bgs/bg1.png" width="800" height="1434"/>
  </imagelayer>
  <objectgroup id="8" name="Ground Layer">
-  <object id="1" gid="1" x="1.0303" y="7200.42" width="800" height="122"/>
+  <object id="1" gid="1" x="0" y="7199.42" width="800" height="122"/>
  </objectgroup>
  <objectgroup id="12" name="Platform Layer">
-  <object id="7" gid="2" x="349.333" y="6691.67" width="132" height="65"/>
+  <object id="7" gid="2" x="223.333" y="290" width="132" height="65"/>
   <object id="8" gid="3" x="340.333" y="7079.67" width="124" height="124"/>
+  <object id="9" x="303.333" y="-10.6667" width="205.333" height="8">
+   <properties>
+    <property name="name" value="level_top"/>
+   </properties>
+  </object>
+  <object id="10" x="268" y="214">
+   <properties>
+    <property name="name" value="player"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

@@ -11,8 +11,8 @@ public class DesktopLauncher {
 	public static void main (String[] arg) {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 
-		int preferredWidth = GlobalSettings.WORLD_WIDTH;
-		int preferredHeight = GlobalSettings.WORLD_HEIGHT;
+		int preferredWidth = GlobalSettings.VIEWPORT_WIDTH;
+		int preferredHeight = GlobalSettings.VIEWPORT_HEIGHT;
 		int width = preferredWidth;
 		int height = preferredHeight;
 

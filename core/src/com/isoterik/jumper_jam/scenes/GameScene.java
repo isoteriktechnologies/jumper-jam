@@ -7,6 +7,7 @@ import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.isoterik.jumper_jam.GlobalSettings;
+import com.isoterik.jumper_jam.components.CameraController;
 import com.isoterik.racken.GameObject;
 import com.isoterik.racken.Scene;
 import com.isoterik.racken._2d.components.renderer.TiledMapRenderer;
@@ -18,6 +19,7 @@ public class GameScene extends Scene {
 
     public GameScene() {
         gameManager = GameObject.newInstance("GameManager");
+        gameManager.addComponent(new CameraController());
         addGameObject(gameManager);
 
         TiledMap tiledMap = racken.assets.getAsset("level1.tmx", TiledMap.class);
