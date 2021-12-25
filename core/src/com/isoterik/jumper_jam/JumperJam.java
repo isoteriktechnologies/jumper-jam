@@ -12,7 +12,7 @@ public class JumperJam extends GameDriver {
 		enqueueAssets();
 		racken.assets.loadAssetsNow();
 
-		racken.defaultSettings.VIEWPORT_WIDTH = GlobalSettings.WORLD_WIDTH;
+		racken.defaultSettings.VIEWPORT_WIDTH  = GlobalSettings.WORLD_WIDTH;
 		racken.defaultSettings.VIEWPORT_HEIGHT = GlobalSettings.WORLD_HEIGHT;
 		racken.defaultSettings.PIXELS_PER_UNIT = GlobalSettings.PIXELS_PER_UNIT;
 

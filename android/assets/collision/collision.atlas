@@ -1,0 +1,16 @@
+collision.png
+size:256,128
+filter:Linear,Linear
+repeat:none
+Collision1
+bounds:84,2,54,51
+offsets:35,34,124,119
+Collision2
+bounds:157,63,65,63
+offsets:30,28,124,119
+Collision3
+bounds:84,55,71,71
+offsets:27,24,124,119
+Collision4
+bounds:2,36,80,90
+offsets:22,14,124,119
