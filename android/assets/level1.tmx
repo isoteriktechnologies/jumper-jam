@@ -5,6 +5,11 @@
  </tileset>
  <tileset firstgid="2" name="Platformer1" tilewidth="132" tileheight="65" tilecount="1" columns="1">
   <image source="platforms/Platformer1.png" width="132" height="65"/>
+  <tile id="0">
+   <properties>
+    <property name="name" value="platform"/>
+   </properties>
+  </tile>
  </tileset>
  <tileset firstgid="3" name="sign1" tilewidth="155" tileheight="155" tilecount="1" columns="1">
   <image source="platforms/sign1.png" width="155" height="155"/>
@@ -28,7 +33,7 @@
   <object id="1" gid="1" x="1.0303" y="7200.42" width="800" height="122"/>
  </objectgroup>
  <objectgroup id="12" name="Platform Layer">
-  <object id="7" gid="2" x="283.333" y="6677" width="132" height="65"/>
-  <object id="8" gid="3" x="302.333" y="7079.67" width="155" height="155"/>
+  <object id="7" gid="2" x="349.333" y="6691.67" width="132" height="65"/>
+  <object id="8" gid="3" x="340.333" y="7079.67" width="124" height="124"/>
  </objectgroup>
 </map>
