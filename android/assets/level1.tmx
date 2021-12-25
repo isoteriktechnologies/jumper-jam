@@ -35,14 +35,14 @@
  <objectgroup id="12" name="Platform Layer">
   <object id="7" gid="2" x="223.333" y="290" width="132" height="65"/>
   <object id="8" gid="3" x="340.333" y="7079.67" width="124" height="124"/>
-  <object id="9" x="303.333" y="-10.6667" width="205.333" height="8">
+  <object id="9" x="303.333" y="-7.66667" width="205.333" height="8">
    <properties>
-    <property name="name" value="level_top"/>
+    <property name="name" value="Level Top"/>
    </properties>
   </object>
   <object id="10" x="268" y="214">
    <properties>
-    <property name="name" value="player"/>
+    <property name="name" value="Player"/>
    </properties>
   </object>
  </objectgroup>

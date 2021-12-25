@@ -2,6 +2,7 @@ package com.isoterik.jumper_jam.scenes;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.MapProperties;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject;
 import com.badlogic.gdx.utils.Array;
@@ -19,8 +20,7 @@ public class GameScene extends Scene {
 
     public GameScene() {
         gameManager = GameObject.newInstance("GameManager");
-        gameManager.addComponent(new CameraController());
-        addGameObject(gameManager);
+        //gameManager.addComponent(new CameraController());
 
         TiledMap tiledMap = racken.assets.getAsset("level1.tmx", TiledMap.class);
         tiledMapRenderer = new TiledMapRenderer(tiledMap, 1f/GlobalSettings.PIXELS_PER_UNIT);
@@ -29,6 +29,8 @@ public class GameScene extends Scene {
         mainCamera.setup(new FitViewport(gameWorldUnits.getWorldWidth(), gameWorldUnits.getWorldHeight()));
 
         init();
+
+        addGameObject(gameManager);
     }
 
     private void init() {
@@ -47,5 +49,34 @@ public class GameScene extends Scene {
             gameObject.transform.setPosition(x, y);
             addGameObject(gameObject);
         }
+
+        Array<RectangleMapObject> rectangleObjects = tiledMapRenderer.getRectangleObjects();
+        for (RectangleMapObject rectangleObject : rectangleObjects) {
+            MapProperties properties = rectangleObject.getProperties();
+            float width = gameWorldUnits.toWorldUnit((float)properties.get("width"));
+            float height = gameWorldUnits.toWorldUnit((float)properties.get("height"));
+            float x = gameWorldUnits.toWorldUnit((float)properties.get("x"));
+            float y = gameWorldUnits.toWorldUnit((float)properties.get("y"));
+
+            GameObject rect = GameObject.newInstance(properties.get("name", String.class));
+            rect.transform.setSize(width, height);
+            rect.transform.setPosition(x, y);
+            addGameObject(rect);
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

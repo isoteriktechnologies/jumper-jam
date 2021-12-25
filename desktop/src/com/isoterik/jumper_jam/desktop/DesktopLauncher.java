@@ -20,8 +20,10 @@ public class DesktopLauncher {
 		if (size.width < preferredWidth)
 			width = size.width;
 
-		if (size.height < preferredHeight)
+		if (size.height < preferredHeight) {
 			height = size.height - 100;
+			width *= ((float)width / height);
+		}
 
 		config.setWindowedMode(width, height);
 		config.setResizable(false);
