@@ -21,9 +21,10 @@ public class DesktopLauncher {
 			width = size.width;
 
 		if (size.height < preferredHeight)
-			height = size.height;
+			height = size.height - 100;
 
 		config.setWindowedMode(width, height);
+		config.setResizable(false);
 
 		new Lwjgl3Application(new JumperJam(), config);
 	}

@@ -1,31 +1,26 @@
 package com.isoterik.jumper_jam;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.isoterik.jumper_jam.scenes.GameScene;
+import com.isoterik.racken.GameDriver;
+import com.isoterik.racken.Scene;
+import com.isoterik.racken._2d.scenes.transition.SceneTransitions;
 
-public class JumperJam extends ApplicationAdapter {
-	SpriteBatch batch;
-	Texture img;
-	
+public class JumperJam extends GameDriver {
 	@Override
-	public void create () {
-		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+	protected Scene initGame() {
+		enqueueAssets();
+		racken.assets.loadAssetsNow();
+
+		racken.defaultSettings.VIEWPORT_WIDTH = GlobalSettings.WORLD_WIDTH;
+		racken.defaultSettings.VIEWPORT_HEIGHT = GlobalSettings.WORLD_HEIGHT;
+		racken.defaultSettings.PIXELS_PER_UNIT = GlobalSettings.PIXELS_PER_UNIT;
+
+		splashTransition = SceneTransitions.fade(1f);
+		return new GameScene();
 	}
 
-	@Override
-	public void render () {
-		ScreenUtils.clear(1, 0, 0, 1);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
-	}
-	
-	@Override
-	public void dispose () {
-		batch.dispose();
-		img.dispose();
+	private void enqueueAssets() {
+		racken.assets.enqueueAsset("level1.tmx", TiledMap.class);
 	}
 }
