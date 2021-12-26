@@ -47,7 +47,10 @@ public class CameraController extends Component {
         float minY = scene.getGameWorldUnits().getWorldHeight()/2f;
         float oldCameraY = cameraPosition.y;
         float newCameraY = playerPosition.y + (playerSize.y * .5f);
-        cameraPosition.y += interpolation.apply(newCameraY - oldCameraY) * deltaTime;
+
+        Vector3 target = new Vector3(cameraPosition.x, newCameraY, cameraPosition.z);
+        cameraPosition.interpolate(target, (newCameraY / oldCameraY) * deltaTime, interpolation);
+
         cameraPosition.y = MathUtils.clamp(cameraPosition.y, minY, maxY - minY);
     }
 }
