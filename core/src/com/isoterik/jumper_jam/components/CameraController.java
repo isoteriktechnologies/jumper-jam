@@ -19,10 +19,10 @@ public class CameraController extends Component {
             camera = scene.getMainCamera();
 
         if (player == null)
-            player = scene.findGameObject(GlobalSettings.PLAYER_TAG);
+            player = findGameObject(GlobalSettings.PLAYER_TAG);
 
         if (maxY == 0) {
-            GameObject levelTop = scene.findGameObject(GlobalSettings.LEVEL_TOP_TAG);
+            GameObject levelTop = findGameObject(GlobalSettings.LEVEL_TOP_TAG);
             if (levelTop != null)
                 maxY = levelTop.transform.position.y;
         }
